@@ -113,7 +113,7 @@ function createHTML(options = {}) {
             heading5: { result: function() { return exec(formatBlock, '<h5>'); }},
             heading6: { result: function() { return exec(formatBlock, '<h6>'); }},
             paragraph: { result: function() { return exec(formatBlock, '<p>'); }},
-            quote: { result: function() { return exec(formatBlock, '<blockquote>'); }},
+            quote: { result: function() { return queryCommandValue(formatBlock) === 'blockquote' ? exec(formatBlock, '<p>') : exec(formatBlock, '<blockquote>'); }},
             removeFormat: { result: function() { return exec('removeFormat'); }},
             orderedList: { state: function() { return queryCommandState('insertOrderedList'); }, result: function() { return exec('insertOrderedList'); }},
             unorderedList: { state: function() { return queryCommandState('insertUnorderedList'); },result: function() { return exec('insertUnorderedList'); }},

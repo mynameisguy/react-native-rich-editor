@@ -172,7 +172,7 @@ export default class RichToolbar extends Component {
             <TouchableOpacity
                 key={action}
                 disabled={disabled}
-                style={[{width: iconSize, justifyContent: 'center'}, style]}
+                style={[{alignSelf: 'center'}, style]}
                 onPress={() => that._onPress(action)}>
                 {icon ? (
                     typeof icon === 'function' ? (
@@ -182,8 +182,8 @@ export default class RichToolbar extends Component {
                             source={icon}
                             style={{
                                 tintColor: tintColor,
-                                height: iconSize,
                                 width: iconSize,
+                                resizeMode: 'contain',
                             }}
                         />
                     )
